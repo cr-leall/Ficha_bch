@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block estilos%}
+
+    {% endblock estilos%}
+  <title>BancoChile</title>
+</head>
+
+<body>
+    <header class="header"> 
+        <div class="container">
+            <div class="btn-menu">
+                <label for="btn-menu">☰</label>
+            </div>   
+            <nav>
+                <img src="{% static 'img/logoBch.png' %}" id="logo" alt="logoBch"> 
+            
+            <div class="header-info">
+                <p><strong>Nombre:</strong> Dennise Pailamilla</p>
+                <p><strong>Fecha:</strong> 23-01-2025</p>
+                <p><strong>Tipo de Revisión: </strong> Normal</p>
+            </div>
+        </nav>
+        </div>
+    </header>
+   
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="{% url 'INDEX' %}">Evaluacion Ejecutivos</a>
+                <a href="#">Listado Ejecutivos</a>
+                <a href="#">Reporte Sucursal</a>
+                <a href="#">Revision At Sucursal</a>
+            </nav>
+            <label for="btn-menu">✖️</label>
+        </div>
+    </div>
+    <div class="capa"></div>
+    <!--------------------------------------------------------->
+    <!--botones principales-->
+    <div class="top-buttons">
+        <button> Recuperar </button>
+        <button> Limpiar </button>
+        <button> Archivar </button>
+    <div class="calificación">
+        <h3>Calificación / Estado de Carpeta</h3>
+        <div class="resultado"> Excelente</div>
+    </div>
+    </div> 
+     <!--Contenedor Principal-->
+     <div id="container">
+        <!--Columna Izquierda: Datos Generales-->
+        <div class="left-column">            
+            <label for="codigo-oficina">Código Oficina:</label>
+            <input type="text" id="codigo-oficina" placeholder="Agregar Código" required>
+
+            <label for="rut">Rut:</label>
+            <select id="rut">
+                <option value="">Selecione</option>
+            </select>
+
+            <label for="ejec-responsable">Ejec. Responsable:</label>
+            <input type="text" id="ejec-responsable" placeholder="Agregar" required>
+
+            <label for="login-creador"> Login Creador:</label>
+            <input type="text" id="login-creador" placeholder="Agergar" required>
+
+            <label for="tipo-cliente"> Tipo de Cliente:</label>
+            <select id="tipo-cliente">
+                <option value="">Selecione</option>
+            </select>
+
+            <label for="sucursal"> Sucursal:</label>
+            <input type="text" id="producto"  placeholder="Agregar" required>
+
+            <label for="prrducto"> Producto:</label>
+            <input type="text" id="producto" placeholder="Agregar" required>
+
+            <label for="m-solicitado"> M. Solicitado (M$):</label>
+            <input type="text" id="m-solicitado" placeholder=" Agregar" required>
+
+            <label for="rut-modificar">Rut Modificar:</label>
+            <select id="rut-modificar">
+                <option value="">Selecione</option>
+            </select>
+
+            <label for="revision-numero"> Revisión N°:</label>
+            <input type="text" id="revision-numero" placeholder="Agregar" required>      
+        </div>
+            
+            
+            <!--Seccion central Variables-->
+       {% block contenido %}
+
+       {% endblock contenido %}
+                    <!--Selector de Pilares--> 
+                    
+                <div class="right-column">
+                    <h3>Pilares</h3>
+                    <select id="pilar-select">
+                        <option value="formalidad"> <a href="{% url 'INDEX'%}">Formalidad</a></option>
+                        <option value="gestion-otorgamiento">Gestión Otorgamiento</option>
+                        <option value="depuración-antecedentes"> Depuración de Antecedentes</option>
+                        <option value="ingreso-datos"> Ingreso de Datos</option>
+                    </select>
+                </div>   
+    </div>    
+    {% block js %}
+    {%endblock js %}
+</body>
+</html>

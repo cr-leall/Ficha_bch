@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap");
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2023/05/28/09/21/south-tyrol-8023213_1280.jpg");
+}
+.capa {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+}
+/*Estilos para el encabezado*/  
+#container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .btn-menu,
+.logo {
+  float: left;
+  line-height: 70px;
+}
+.container .btn-menu label {
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.header-info p{
+  position: relative;
+  margin-block: 1px;
+  left: 60rem;
+  top: -96px;
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+  width: 200px;
+  height: 23px;
+}
+/*Fin de Estilos para el encabezado*/
+
+/*Menù lateral*/
+#btn-menu {
+  display: none;
+}
+.container-menu {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 300ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+#btn-menu:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.cont-menu {
+  width: 100%;
+  max-width: 250px;
+  background: #132669;
+  height: 100vh;
+  position: relative;
+  transition: all 300ms ease;
+  transform: translateX(-100%);
+}
+#btn-menu:checked ~ .container-menu .cont-menu {
+  transform: translateX(0%);
+}
+.cont-menu nav {
+  transform: translateY(15%);
+}
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: #fff;
+  border-left: 5px solid transparent;
+  transition: all 400ms ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cont-menu nav a:hover {
+  border-left: 5px solid #97A9B8;
+  background: #494D5A;
+  text-transform: uppercase;
+}
+.cont-menu label {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+/*Fin de Menù lateral*/
+
+/* Botones Principales */
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96%;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.top-buttons button{
+padding: 10px 20px;
+background-color: #132669;
+color: white;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+}
+.calificacion{
+    align-items: center;
+    margin-left: auto;
+    background-color: #132669;
+}
+
+.calificacion .resultado{
+    font-size: 20px;
+    padding: 15px;
+    background-color: #132669;
+    color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Contenedor Principal*/
+#container{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 10px;
+}
+
+/* Columna Izquierda*/
+.left-column{
+    background: white;
+    width: 16em;
+    padding: 10px;
+    height: 45em;
+    border-radius: 20px;
+    box-shadow: 0 6px 8px rgb(0, 0, 0);
+}
+
+.left-column label{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.left-column input, .left-column select{
+    width: 80%;
+    height: 30px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Sección Central */
+.central-section{
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 6px 8px rgb(0, 0, 0);
+    text-align: left;
+    height: 40em;
+}
+
+.central-section h2{
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #132669;
+    text-align: center;
+
+}
+
+.central-section label{
+  margin-top: 10px;
+}
+
+.inputs{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.inputs select, .inputs input[type="text"]{
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #645353d3;
+    border-radius: 10px;
+}
+
+/* Columna Derecha */
+.right-column{
+    flex: 1;
+    background: white;
+    padding: 20px;
+    height: 39em;
+    border-radius: 20px;
+    box-shadow: 0 6px 8px rgb(0, 0, 0);
+}
+
+.rigth-column-h3{
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #132669;
+}
+
+#pilar-select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+
+}
