@@ -1,0 +1,85 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block contenido%}
+  <!--Seccion central Variables-->
+  <div class="central-section">
+    <h2> Evaluación Ejecutivo</h2>
+
+    <div id="gestion-otorgamiento" class="pilar-contenido">
+        <h3> Pilar Gestión de Otorgamiento </h3> 
+
+ <!-- campo revisión de Otorgamiento-->                           
+    <label> Atribuciones</label>
+    <div class="inputs">
+        <select name="respuesta-atribuciones">
+            <option value=> Selecione </option>
+            <option value="sin-error"> SIN ERROR</option>
+            <option value="error"> ERROR </option>
+            <option value="n/a"> N/A </option>
+        </select>
+        <input type="text" name="observaciones-revision-credito" placeholder=" Observaciones">                             
+    </div>
+</div>
+<div class="form-group">
+<label> Contribución Garantías y/o Aval </label>
+<div class="inputs">
+    <select name="respuesta-contribucion-garantia">
+        <option value=> Seleccione </option>
+        <option value="sin-error"> SIN ERROR </option>
+        <option value="error"> ERROR </option>
+        <option value="n/a"> N/A </option>
+    </select>
+    <input type="text" name="observaciones-contribucion-garantia" placeholder="Observaciones">
+ </div>
+</div>
+<div class="form-group">
+<label> Condiciones de Aprobación </label>
+<div class="inputs">
+    <select name="respuesta-condiciones-aprobacion">
+        <option value=> Selecione </option>
+        <option value="sin-error"> SIN ERROR </option>
+        <option value="error"> ERROR</option>
+        <option value="n/a"> N/A </option>
+    </select>
+    <select name="tipo-error-condiciones-aprobacion">
+        <option value=> Seleccione </option>
+        <option value="cumple-parcialmente"> Cumple Parcialmente </option>
+        <option value="incumplimiento-total"> Incumplimiento Total </option>
+    </select>  
+    <input type="text" name="observaciones-condiciones-aprobacion" placeholder="Observaciones"> 
+</div>
+</div>
+<!--campo cambio resultado evaluacion automatica-->
+<div class="form-group">
+<label> Cambio Resultado Evaluación Automática </label>
+<div class="inputs">
+<select name="respuesta-cambio-resultado-evaluacion-automatica">
+    <option value=> Seleccione </option>
+    <option value="sin-error"> SIN ERROR </option>
+    <option value="error"> ERROR </option>
+    <option value="n/a"> N/A </option>
+</select>
+<select name="tipo-error-deudas-vinculadas">
+    <option value=> Seleccione </option>
+    <option value="de-cumple-no-cumple"> De Cumple a No Cumple </option>
+    <option value="de-no-cumple-acumple"> De No Cumple a Cumple </option>
+</select>
+<input type="text" name="observaciones-cambio-resultado-evaluacion-automatica" placeholder="Observaciones">  
+</div>  
+</div>
+<!--campo deudas vinculadas-->
+<div class="form-group">
+<label> Deudas Vinculadas </label>
+<div class="inputs">
+    <select name="respuesta-deudas-vinculadas">
+        <option value=> Seleccione </option>
+        <option value="sin-error"> SIN ERROR </option>
+        <option value="error"> ERROR </option>
+        <option value="n/a"> N/A </option>
+    </select>
+<input type="text" name="observaciones-deudas-vinculadas" placeholder="Observaciones">                                                  
+</div>            
+</div>      
+</div>          
+
+{% endblock contenido%}

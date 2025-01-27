@@ -220,7 +220,6 @@
 /*Estilo contenedor datos usuario*/
 .tarjeta{
   position: relative;
-  background-image: url(img/logo_user.png);
   margin-top: 20px;
   width: 450px;
   height: 400px;

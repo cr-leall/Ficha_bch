@@ -15,7 +15,7 @@ class Usuario(models.Model):
     apellidos = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=30, unique=True)
-    password = models.CharField( max_length=30)
+    password = models.CharField( max_length=30, unique=True)
 
     def set_password(self, raw_password):
         self.password = make_password(raw_password)

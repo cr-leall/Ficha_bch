@@ -21,17 +21,17 @@
  <section id="container">
     <div class="form-container">
       <h1 class="title">Bienvenido de nuevo</h1>
-      <form class="form">
+      <form class="form" onsubmit="validarDatos(event)">
         <div class="input-group">
           <label for="username">Nombre de Usuario</label>
-          <input type="text" name="username" id="username" maxlength="15" required placeholder="Ingrese su nombre de Usuario">
+          <input type="text" name="username" id="username" maxlength="15" placeholder="Ingrese su nombre de Usuario">
         </div>
         <div class="input-group">
           <label for="password">Contraseña</label>
-          <input type="password" name="password" id="password" maxlength="30" required placeholder="Introduzca su contraseña">
+          <input type="password" name="password" id="password" maxlength="30" placeholder="Introduzca su contraseña">
         </div>
-        <button type="button" class="button" onclick="ValidarDatos">Ingresar</button>
-        <label class="switch"> Mantener sesion inicida
+        <button type="submit" class="button">Ingresar</button>
+        <label class="switch"> Mantener sesión iniciada
           <input checked="" type="checkbox">
           <div class="slider">
               <div class="circle">
@@ -56,4 +56,5 @@
     </div>
  </section>
  <script src="{% static 'js/login.js' %}"></script>
+</body>
 </html>

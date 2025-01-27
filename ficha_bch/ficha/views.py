@@ -20,6 +20,13 @@ def base(request):
 def index(request):
     return render(request,'web/index.html')
 
-def ficha(request):
-    return render(request,'web/ficha.html')
+def gestion_otorga(request):
+    return render(request,'web/gestion_otorga.html')
+
+def depuracion_antece(request):
+    return render(request,'web/depuracion_antece.html')
+
+def ingreso_datos(request):
+    return render(request,'web/ingreso_datos.html')
+
 

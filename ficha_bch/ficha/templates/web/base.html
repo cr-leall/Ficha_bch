@@ -107,10 +107,10 @@
                 <div class="right-column">
                     <h3>Pilares</h3>
                     <select id="pilar-select">
-                        <option value="formalidad"> <a href="{% url 'INDEX'%}">Formalidad</a></option>
-                        <option value="gestion-otorgamiento">Gestión Otorgamiento</option>
-                        <option value="depuración-antecedentes"> Depuración de Antecedentes</option>
-                        <option value="ingreso-datos"> Ingreso de Datos</option>
+                        <a href="{% url 'INDEX'%}"><option value="formalidad">Formalidad</option></a>
+                        <a href="{% url 'GESTION'%}"><option value="gestion-otorgamiento">Gestión Otorgamiento</option></a>
+                        <a href="{% url 'DEPURACION'%}"><option value="depuración-antecedentes"> Depuración de Antecedentes</option></a>
+                        <a href="{% url 'INGRESOS'%}"><option value="ingreso-datos"> Ingreso de Datos</option></a>
                     </select>
                 </div>   
     </div>    
