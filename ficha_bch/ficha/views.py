@@ -5,13 +5,6 @@ from .form import UsuarioForm
 def login(request):
     return render(request,'web/login.html')
 
-def base(request):
-    return render(request,'web/base.html')
-
-def index(request):
-    return render(request,'web/index.html')
-
-
 def registro(request):
     if request.method == 'POST':
         form = UsuarioForm(request.POST)
@@ -20,3 +13,13 @@ def registro(request):
     else:
         form = UsuarioForm()
     return render(request,'web/registro.html')
+
+def base(request):
+    return render(request,'web/base.html')
+
+def index(request):
+    return render(request,'web/index.html')
+
+def ficha(request):
+    return render(request,'web/ficha.html')
+
