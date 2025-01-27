@@ -1,5 +1,173 @@
 {% extends "web/base.html" %}
 {% load static %}
+{% block estilos%}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock estilos%}
 {% block contenido%}
+    <!--Seccion central Variables-->
+    <div class="central-section">
+        <h2> Evaluación Ejecutivo</h2>
 
+        <div id="ingreso-datos" class="pilar-contenido">
+            <h3> Ingreso de Datos </h3> 
+       <!--Campo actividad-->
+     <label> Actividad </label>
+<div class="inputs">
+     <select name="respuesta-actividad">
+        <option value=""> Selecione </option>
+        <option value="sin-error"> SIN ERROR</option>
+        <option value="error"> ERROR </option>
+        <option value="n/a"> N/A </option>
+     </select>             
+        <input type="text" name="observaciones-ingresos-mensuales" placeholder="Dice" required> 
+        <input type="text" name="observaciones-ingresos-mensuales" placeholder="Debe Decir "required> 
+        <input type="text" name="observaciones-ingresos-mensuales" placeholder="Observaciones"required>
+         </div>
+         
+             <!-- dirección--> 
+           <label> Dirección Particular </label>
+           <div class="inputs">
+                <select name="respuesta-estado-situacion">
+                    <option value=>Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="N/A"> N/A </option>
+                </select>
+                <input type="text" name="observaciones-ingresos-mensuales" placeholder="Dice" required> 
+                <input type="text" name="observaciones-ingresos-mensuales" placeholder="Debe Decir "required> 
+                <input type="text" name="observaciones-ingresos-mensuales" placeholder="Observaciones"required>
+           </div>
+           <!-- Universidad--> 
+           <label> Universidad </label>
+           <div class="inputs">
+                <select name="respuesta-universidad">
+                    <option value=>Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="N/A"> N/A </option>
+                </select>
+                <input type="text" name="observaciones-universidad" placeholder="Dice" required> 
+                <input type="text" name="observaciones-universidad" placeholder="Debe Decir "required> 
+                <input type="text" name="observaciones-universidad" placeholder="Observaciones"required>
+           </div>
+            <!-- Fecha de Ingreso Empleo--> 
+            <label> Fecha de Ingreso Empleo </label>
+            <div class="inputs">
+                 <select name="respuesta-fecha-empleo">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-fecha-empleo" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-fecha-empleo" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-fecha-empleo" placeholder="Observaciones"required>
+            </div>
+            <!-- Nivel Educacional-->
+            <label> Nivel Educacional </label>
+            <div class="inputs">
+                 <select name="respuesta-nivel-educacional">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-nivel-educacional" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-nivel-educacional" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-nivel-educacional" placeholder="Observaciones"required>
+            </div>
+               <!-- Nacionalidad-->
+            <label> Nacionalidad </label>
+            <div class="inputs">
+                 <select name="respuesta-nacionalidad">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-nacionalidad" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-nacionalidad" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-nacionalidad" placeholder="Observaciones"required>
+            </div>
+            <!-- Tipo de Contrato-->
+            <label> Tipo de Contrato </label>
+            <div class="inputs">
+                 <select name="respuesta-tipo-contrato">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-tipo-contrato" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-tipo-contrato" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-tipo-contrato" placeholder="Observaciones"required>
+            </div>
+              <!--Tipo de Renta-->
+            <label> Tipo de Renta </label>
+            <div class="inputs">
+                 <select name="respuesta-tipo-renta">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-tipo-renta" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-tipo-renta" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-tipo-renta" placeholder="Observaciones"required>
+            </div>
+            <!--Carrera/semestre-->
+            <label> Carrera/Semestre </label>
+            <div class="inputs">
+                 <select name="respuesta-carrera-semestre">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-carrera-semestre" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-carrera-semestre" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-carrera-semestre" placeholder="Observaciones"required>
+            </div>
+
+            <label> Fecha de Ingreso Empleo </label>
+            <div class="inputs">
+                 <select name="respuesta-fecha-empleo">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-fecha-empleo" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-fecha-empleo" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-fecha-empleo" placeholder="Observaciones"required>
+            </div>
+            <!--Profesión-->
+            <label> Profesión </label>
+            <div class="inputs">
+                 <select name="respuesta-profesión">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-profesion" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-profesion" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-profesion" placeholder="Observaciones"required>
+            </div>
+
+            <!--Estado Civil-->
+            <label> Tipo de Renta </label>
+            <div class="inputs">
+                 <select name="respuesta-estado-civil">
+                     <option value=>Selecione </option>
+                     <option value="sin-error"> SIN ERROR</option>
+                     <option value="error"> ERROR </option>
+                     <option value="N/A"> N/A </option>
+                 </select>
+                 <input type="text" name="observaciones-estado-civil" placeholder="Dice" required> 
+                 <input type="text" name="observaciones-estado-civil" placeholder="Debe Decir "required> 
+                 <input type="text" name="observaciones-estadp-civil" placeholder="Observaciones"required>
+           </div>
+        </div>              
+    </div>
 {% endblock contenido%}

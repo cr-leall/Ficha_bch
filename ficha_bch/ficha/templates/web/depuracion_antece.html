@@ -1,5 +1,178 @@
 {% extends "web/base.html" %}
 {% load static %}
+{% block estilos%}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock estilos%}
 {% block contenido%}
+     <!--Seccion central Variables-->
+<div class="central-section">
+    <h2> Evaluación Ejecutivo</h2>
 
+    <div id="depuracion-antecedentes" class="pilar-contenido">
+        <h3> Pilar Depuración de Antecedentes </h3>                    
+
+        <!--campo depuracion de antecedentes-->
+        <label> Ingresos Mensuales </label>
+            <div class="inputs">
+                <select name="respuesta-ingresos-mensuales">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-ingresos-mensuales" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-ingresos-mensuales" placeholder="Debe Decir (m$)"required> 
+                    <input type="text" name="observaciones-ingresos-mensuales" placeholder="Observaciones"required>
+            </div>    
+        <label> Activo </label>
+            <div class="inputs">
+                <select name="respuesta-activo">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-activo" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-activo" placeholder="Debe Decir (m$)" required>
+                    <input type="text" name="observaciones-activo" placeholder="Observacion"required>    
+            </div> 
+        <label> Dividendo BCH (actual y sin cursar) o Gasto Vivienda </label>
+            <div class="inputs">
+                <select name="respuesta-dividendo-gasto-vivienda">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-dividendo-gasto-vivienda" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-dividendo-gasto-vivienda" placeholder="Debe Decir (m$)" required>
+                    <input type="text" name="observaciones-dividendo-gasto-vivienda" placeholder="Observaciones" required>    
+            </div>      
+        <label> Arriendos Pagados </label>
+            <div class="inputs">
+                <select name="respuesta-arriendos-pagados">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                <input type="text" name="observaciones-arriendos-pagados" placeholder="Dice (m$)" required> 
+                <input type="text" name="observaciones-arriendos-pagados" placeholder="Debe Decir (m$)"required> 
+                <input type="text" name="observaciones-arriendos-pagados" placeholder="Observaciones"required>     
+            </div>
+        <label> Cuota Préstamo Empleador y/o CCAF </label>
+            <div class="inputs">
+                <select name="respuesta-prestamo-empleador">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                <input type="text" name="observaciones-prestamo-empleador" placeholder="Dice (m$)" required> 
+                <input type="text" name="observaciones-prestamo-empleador" placeholder="Debe Decir (m$)" required> 
+                <input type="text" name="observaciones-prestamo-empleador" placeholder="Observaciones" required>      
+            </div>                    
+        <label> Otros Egresos </label>
+            <div class="inputs">
+                <select name="respuesta-otro-egresos">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                <input type="text" name="observaciones-otros-egresos" placeholder="Dice (m$)"required> 
+                <input type="text" name="observaciones-otros-egresos" placeholder="Debe Decir (m$)"required> 
+                <input type="text" name="observaciones-otros-egresos" placeholder="Observaciones" required>
+            </div>
+    </div>   
+        
+
+        <h3> Producto Compra de Cartera </h3>
+
+        <label> Monto a Restructurar Renegociado Corto Plazo y Largo Plazo </label>
+            <div class="inputs">
+                <select name="respuesta-reestructurar-renegociado">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-reestructurar-renegociado" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-reestructurar-renegociado" placeholder="Debe Decir (m$)"required> 
+                    <input type="text" name="observaciones-reestructurar-renegociado" placeholder="Observaciones"required>
+            </div> 
+        <label> Cuota Banco CP (Compra Cartera) </label>
+            <div class="inputs">
+                <select name="respuesta-cuota-banco">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-cuota-banco" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-cuota-banco" placeholder="Debe Decir (m$)" required> 
+                    <input type="text" name="observaciones-cuota-banco" placeholder="Observaciones" required>
+            </div>
+        <label>Cuota Compra OOII (Compra Cartera) </label>
+            <div class="inputs">
+                <select name="respuesta-cuota-compra">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-cuota-compra" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-cuota-compra" placeholder="Debe Decir (m$)" required> 
+                    <input type="text" name="observaciones-cuota-compra" placeholder="Observaciones" required>
+            </div>
+        <label> Monto Compra Banco LP(Compra Cartera) </label>
+            <div class="inputs">
+                <select name="respuesta-monto-compra">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-monto-compra" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-monto-compra" placeholder="Debe Decir (m$)" required> 
+                    <input type="text" name="observaciones-monto-compra" placeholder="Observaciones" required>
+            </div> 
+        <label> Monto Compra Banco CP (Compra Cartera) </label>
+            <div class="inputs">
+                <select name="respuesta-monto-banco">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-monto-banco" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-monto-banco" placeholder="Debe Decir (m$)" required> 
+                    <input type="text" name="observaciones-monto-banco" placeholder="Observaciones"required>
+            </div>
+        <label> Monto Compra OOII (Compra Cartera) </label>
+            <div class="inputs">
+                <select name="respuesta-monto-compra">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-monto-compra" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-monto-compra" placeholder="Debe Decir (m$)"required> 
+                    <input type="text" name="observaciones-monto-compra" placeholder="Observaciones" required>
+            </div>
+        <label> Monto Compra Compra SBIF (Compra Cartera) </label>
+            <div class="inputs">
+                <select name="respuesta-monto-comprasbif">
+                    <option value=> Selecione </option>
+                    <option value="sin-error"> SIN ERROR</option>
+                    <option value="error"> ERROR </option>
+                    <option value="n/a"> N/A </option>
+                </select> 
+                    <input type="text" name="observaciones-monto-comprasbif" placeholder="Dice (m$)" required> 
+                    <input type="text" name="observaciones-monto-comprasbif" placeholder="Debe Decir (m$)" required> 
+                    <input type="text" name="observaciones-monto-comprasbif" placeholder="Observaciones"required>
+            </div>
+    </div>
+</div>     
 {% endblock contenido%}

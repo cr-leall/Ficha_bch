@@ -1,0 +1,62 @@
+/* Sección Central */
+.central-section{
+    margin-top: 10px;
+    background: white;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: 0 6px 8px rgb(0, 0, 0);
+    text-align: left;
+    height: 77em;
+    width: 43em;
+}
+
+.central-section h2{
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #132669;
+    text-align: center;
+
+}
+
+.central-section label{
+  margin-top: 10px;
+}
+
+.inputs{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.inputs select, .inputs input[type="text"]{
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #645353d3;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* Columna Derecha */
+.right-column{
+    flex: 1;
+    background: white;
+    padding: 20px;
+    height: 39em;
+    border-radius: 20px;
+    box-shadow: 0 6px 8px rgb(0, 0, 0);
+    margin-top: 20px;
+}
+
+.rigth-column-h3{
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #132669;
+}
+
+#pilar-select, option{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    cursor: pointer;
+}

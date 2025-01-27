@@ -153,6 +153,7 @@ cursor: pointer;
     height: 45em;
     border-radius: 20px;
     box-shadow: 0 6px 8px rgb(0, 0, 0);
+    margin-top: 10px;
 }
 
 .left-column label{
@@ -205,6 +206,7 @@ cursor: pointer;
     padding: 10px;
     border: 1px solid #645353d3;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /* Columna Derecha */
@@ -215,6 +217,7 @@ cursor: pointer;
     height: 39em;
     border-radius: 20px;
     box-shadow: 0 6px 8px rgb(0, 0, 0);
+    margin-top: 10px;
 }
 
 .rigth-column-h3{
@@ -223,10 +226,10 @@ cursor: pointer;
     color: #132669;
 }
 
-#pilar-select{
+#pilar-select, option{
     width: 100%;
     padding: 10px;
     border: 1px solid #000000;
     border-radius: 10px;
-
+    cursor: pointer;
 }
