@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validación personalizada (puedes añadir más reglas)
         if (usuario === "Admin" && contraseña === "123456") {
             alert("Validación exitosa.");
-            // Redirigir a otra vista
-            window.location.href = "{% url 'otra-vista' %}";
+            // Redirigir a otra vista usando la variable de URL
+            window.location.href = urlIndex;
         } else {
             alert("Usuario o contraseña incorrectos.");
         }
