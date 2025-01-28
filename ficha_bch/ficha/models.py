@@ -1,19 +1,6 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
 
-class Pilares(models.Model):
-    formalidad = models.CharField(verbose_name="Formalidad", max_length=20)
-    gest_otorgamiento = models.CharField(verbose_name="Gestión de Otorgamiento", max_length=20)
-    depura_antecedent = models.CharField(verbose_name="Depuración de Antecedentes", max_length=20)
-    ingreso_datos = models.CharField(verbose_name="Ingreso de Datos", max_length=20)
-
-    class Meta:
-        verbose_name = "Pilar"
-        verbose_name_plural = "Pilares"
-
-    def __str__(self):
-        return self.formalidad
-
 class Usuario(models.Model):
     # Campos de texto
     nombres = models.CharField(max_length=50)

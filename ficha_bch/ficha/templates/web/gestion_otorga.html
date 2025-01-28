@@ -1,5 +1,6 @@
 {% extends "web/base.html" %}
 {% load static %}
+
 {% block contenido%}
   <!--Seccion central Variables-->
   <div class="central-section">
@@ -78,7 +79,12 @@
         <option value="n/a"> N/A </option>
     </select>
 <input type="text" name="observaciones-deudas-vinculadas" placeholder="Observaciones">                                                  
-</div>            
+</div>
+    <div class="top-buttons">
+        <button > Recuperar </button>
+        <button> Limpiar </button>
+        <button type="submit" class="button"> Archivar </button>
+    </div>            
 </div>      
 </div>          
 

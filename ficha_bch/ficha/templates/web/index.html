@@ -1,15 +1,17 @@
 {% extends "web/base.html" %}
 {% load static %}
+
 {% block contenido %}
 <div class="central-section">
     <h2>Evaluación Ejecutivo</h2>
 
     <div id="formalidad" class="pilar-contenido">
         <h3>Pilar Formalidad</h3>
-        <form id="form-evaluacion" onsubmit="return validateForm()">
+        <form id="form-evaluacion">
+        
         <label>Verificación Laboral</label>
         <div class="inputs">
-            <select name="respuesta-verificacion-laboral">
+            <select id="respuesta-verificacion-laboral" name="respuesta-verificacion-laboral">
                 <option value="">Seleccione</option>
                 <option value="sin-error">SIN ERROR</option>
                 <option value="error">ERROR</option>
@@ -25,7 +27,7 @@
 
         <label>Estado de Situación</label>
         <div class="inputs">
-            <select name="respuesta-estado-situacion">
+            <select id="respuesta-estado-situacion" name="respuesta-estado-situacion">
                 <option value="">Seleccione</option>
                 <option value="sin-error">SIN ERROR</option>
                 <option value="error">ERROR</option>
@@ -40,7 +42,7 @@
 
         <label>Acreditación Ingresos</label>
         <div class="inputs">
-            <select name="respuesta-acreditacion-ingresos">
+            <select id="respuesta-acreditacion-ingresos" name="respuesta-acreditacion-ingresos">
                 <option value="">Seleccione</option>
                 <option value="sin-error">SIN ERROR</option>
                 <option value="error">ERROR</option>
@@ -59,10 +61,15 @@
             </select>
             <input type="text" name="observaciones" placeholder="Observaciones">
         </div>
+        <div class="top-buttons">
+            <button > Recuperar </button>
+            <button> Limpiar </button>
+            <button type="submit" class="button"> Archivar </button>
+        </div>
     </div>
 </div>
 {% block js %}
 <script src="{% static 'js/formalidad.js' %}"></script>
-{%endblock js %}
+{% endblock js %}
 
 {% endblock contenido %}

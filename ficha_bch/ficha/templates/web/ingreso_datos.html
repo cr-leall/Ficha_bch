@@ -1,8 +1,6 @@
 {% extends "web/base.html" %}
 {% load static %}
-{% block estilos%}
-<link rel="stylesheet" href="{% static 'css/forms.css' %}">
-{% endblock estilos%}
+
 {% block contenido%}
     <!--Seccion central Variables-->
     <div class="central-section">
@@ -168,6 +166,11 @@
                  <input type="text" name="observaciones-estado-civil" placeholder="Debe Decir "required> 
                  <input type="text" name="observaciones-estadp-civil" placeholder="Observaciones"required>
            </div>
+           <div class="top-buttons">
+            <button > Recuperar </button>
+            <button> Limpiar </button>
+            <button type="submit" class="button"> Archivar </button>
+        </div> 
         </div>              
     </div>
 {% endblock contenido%}

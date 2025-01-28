@@ -1,7 +1,4 @@
 from django.contrib import admin
-from .models import Pilares,Usuario
+from .models import Usuario
 # Register your models here.
-
-admin.site.register(Pilares)
-
 admin.site.register(Usuario)
