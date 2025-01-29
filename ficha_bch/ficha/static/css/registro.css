@@ -1,83 +1,90 @@
-#container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* Contenedor principal */
+#container {
+  display: flex;
+  text-align: left;
+  align-items: flex-start;
+  height: 10vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Formulario de registro */
 .form-registro {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  width: 30em;
-  height: 38em;
-  border-radius: 100px;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 20px;
   background-color: rgb(9, 2, 49);
   color: rgba(243, 244, 246, 1);
   box-shadow: 0 5px 8px rgb(3, 3, 14);
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
+/* Título del formulario */
 .title {
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 26px;
-    line-height: 20px;
-    font-weight: 900;
-    margin-top: 40px;
-  }
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 26px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+}
 
-  .form .input {
-    width: 300px;
-    padding: 3px;
-    margin-top: 8px;
-    margin-left: 50px;
-    color: white;
-  
-  }
-  .input label {
-    color: rgb(253, 253, 253);
-  }
-  .form :where(.input input ) {
-    position: relative;
-    height: 30px;
-    width: 350px;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid rgb(40, 116, 238);
-    color: white;
-    background-color: rgba(17, 24, 39, 1);
-  }
+/* Estilos de los inputs */
+.form .input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 8px;
+  color: white;
+}
+
+.input label {
+  color: rgb(253, 253, 253);
+}
+
+.form :where(.input input) {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid rgb(40, 116, 238);
+  color: white;
+  background-color: rgba(17, 24, 39, 1);
+}
+
 .input input:focus {
-    box-shadow: 0 5px #5e5f66c4;
-  }
-  .form .columna {
-    display: flex;
-    column-gap: 15px;
-  }
-  
-  .caja-select select {
-    height: 33px;
-    width: 355px;
-    color: rgb(255, 255, 255);
-    font-size: 15px;
-    border-radius: 10px;
-    border: 1px solid rgb(40, 116, 238);
-    background-color: rgba(17, 24, 39, 1);
-  }
-  .form button {
-    height: 40px;
-    width: 200px;
-    margin-top: 10px;
-    margin-left: 140px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    background: rgb(17, 19, 20);
-    border-radius: 10px;
-    border: 1px solid rgb(40, 116, 238);
-  }
-  .form button:hover {
-    background: rgb(20, 102, 170);
-  }
+  box-shadow: 0 5px #5e5f66c4;
+}
+
+/* Estilos del select */
+.caja-select select {
+  width: 100%;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(40, 116, 238);
+  background-color: rgba(17, 24, 39, 1);
+}
+
+/* Estilos del botón */
+.form button {
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  background: rgb(17, 19, 20);
+  border-radius: 10px;
+  border: 1px solid rgb(40, 116, 238);
+}
+
+.form button:hover {
+  background: rgb(20, 102, 170);
+}

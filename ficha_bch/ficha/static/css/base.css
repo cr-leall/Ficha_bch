@@ -262,6 +262,7 @@ option {
 
 /* Columna Izquierda */
 .left-column {
+  flex-direction: column;
   flex-grow: 1;
   flex-basis: 0;
   background: white;
@@ -276,6 +277,8 @@ option {
 
 .left-column label {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputs {

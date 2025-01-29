@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="{% static 'css/registro.css' %}">
-  <script src="{% static 'js/registro.js' %}"></script>
   <title>Registro de usuarios</title>
 </head>
 
@@ -22,43 +21,48 @@
  <section id="container">
     <div class="form-registro">
       <h1 class="title">Registro del Personal</h1>
-      <form class="form" method="POST" onsubmit="alert('Registro exitoso')">
+      <form class="form" method="POST" onsubmit="return validarRegistro()">
         {% csrf_token %}
         <div class="input">
           <label for="nombres">Nombres:</label>
-          <input type="text" name="nombres" required>
+          <input type="text" name="nombres" id="nombres" required>
         </div>
         <div class="input">
           <label for="apellidos">Apellidos:</label>
-          <input type="text" name="apellidos" required>
+          <input type="text" name="apellidos" id="apellidos" required>
         </div>
         <div class="input">
           <label for="email">Email:</label>
-          <input type="email" name="email" required>
+          <input type="email" name="email" id="email" required>
         </div>
         <div class="input">
           <label for="username">Nombre de usuario:</label>
-          <input type="text" name="username" required>
+          <input type="text" name="username" id="username" required>
         </div>
         <div class="input">
-          <label for="password">Contraseña</label>
+          <label for="password">Contraseña:</label>
           <input type="password" name="password" id="password" required>
         </div>
-        
+        <div class="input">
+          <label for="confirm_password">Confirmar Contraseña:</label>
+          <input type="password" id="confirm_password" required>
+        </div>
         <div class="input">
           <div class="columna">
             <div class="caja-select">
               <label for="roles">Rol:</label>
-              <select name="roles" required>
+              <select name="roles" id="roles" required>
                 <option value="usuario">Analista de evaluación</option>
                 <option value="admin">Supervisor</option>
               </select>
             </div>
           </div>
         </div>
-
         <button type="submit">Enviar</button>
       </form>
     </div>
  </section>
+
+ <script src="{% static 'js/registro.js' %}"></script>
+</body>
 </html>
