@@ -33,8 +33,6 @@ def registro(request):
         return redirect('/index', {'user' : us})  # Redirigir a la vista deseada
     return render(request, 'web/registro.html')
 
-
-
 def login(request):
     return render(request,'web/login.html')
 

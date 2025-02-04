@@ -58,8 +58,8 @@ class cliente(models.Model):
     apellido = models.CharField(max_length=150)
     email = models.EmailField
     direccion = models.CharField(max_length=200)
-    edad = models.IntegerField(unique=True)
     tipo_producto = models.CharField(max_length=100)
+    tipo_cliente = models.CharField(max_length=40)
 
     def clean(self):
         super().clean()
@@ -67,3 +67,33 @@ class cliente(models.Model):
         validar_rut(self.rut)
     def __str__(self):
          return f"{self.rut} - {self.nombre}"
+    
+class ejecutivos(models.Model):
+    rut_ejecutivo = models.CharField(
+         primary_key=True,
+         max_length=10)
+    nombre_ejecutivo = models.CharField(max_length=100)
+    username_ejecutivo = models.CharField(max_length=20)
+
+class oficina(models.Model):
+    cui = models.CharField(primary_key=True, max_length=10)
+    nombre_ofi = models.CharField(max_length=50)  
+
+class sucursal(models.Model):
+    cod_sucursal = models.CharField(primary_key=True, max_length=10)
+    nombre_suc = models.CharField(max_length=50)
+    aprobador = models.CharField(max_length=30)
+    n_oportunidad = models.CharField(max_length=100)
+    cantidad_ejecutivo = models.CharField(max_length=5)
+
+class oportunidad(models.Model):
+    id_oportunidad = models.AutoField(primary_key=True)
+    username_ejecutivo = ejecutivos
+    inconsistencia = models.CharField(max_length=200)
+    monto_solicitado = models.BigIntegerField
+    proceso_credito = models.CharField(max_length=20)
+    pauta_evaluacion = models.CharField(max_length=30)
+    desicion_final = models.BooleanField
+    anio_mes = models.DateField
+    canal = models.TextField
+    prod_eval = models.CharField(max_length=50)
