@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
+from datetime import date
 class Pilares(models.Model):
     id_pilar = models.AutoField(primary_key=True)
     name =  models.CharField(max_length=100)
@@ -14,9 +15,14 @@ class Parametro(models.Model):
 
 class Errores_agravantes(models.Model):
     id_base = models.AutoField(primary_key=True)
-    nombre_parametro = models.CharField(max_length=150)
-    tipo_error = models.CharField(max_length=150)
-    tipo_cliente = models.CharField(max_length=80) 
+    nombre_parametro = models.CharField(max_length=100)
+    tipo_error = models.CharField(max_length=100)
+    tipo_cliente = models.CharField(max_length=20)
+    nota = models.CharField(max_length=20,default="") 
+    puntaje = models.DecimalField(max_digits=5, decimal_places=1)
+
+    def __str__(self):
+         return self.nombre_parametro
 
 
 def validar_rut(rut):
@@ -66,7 +72,7 @@ class cliente(models.Model):
         self.rut = self.rut.replace(".","").upper()
         validar_rut(self.rut)
     def __str__(self):
-         return f"{self.rut} - {self.nombre}"
+         return f"{self.nombre}"
     
 class ejecutivos(models.Model):
     rut_ejecutivo = models.CharField(
@@ -76,24 +82,24 @@ class ejecutivos(models.Model):
     username_ejecutivo = models.CharField(max_length=20)
 
 class oficina(models.Model):
-    cui = models.CharField(primary_key=True, max_length=10)
-    nombre_ofi = models.CharField(max_length=50)  
+    cui = models.CharField(("CUI"),primary_key=True, max_length=10)
+    nombre_ofi = models.CharField(("Nombre Oficina"),max_length=50)  
 
 class sucursal(models.Model):
-    cod_sucursal = models.CharField(primary_key=True, max_length=10)
-    nombre_suc = models.CharField(max_length=50)
-    aprobador = models.CharField(max_length=30)
-    n_oportunidad = models.CharField(max_length=100)
-    cantidad_ejecutivo = models.CharField(max_length=5)
+    cod_sucursal = models.CharField(("Codigo Sucursal"),primary_key=True, max_length=10)
+    nombre_suc = models.CharField(("Nombre Sucursal"),max_length=50)
+    aprobador = models.CharField(("Nombre aprobador"),max_length=30)
+    n_oportunidad = models.CharField(("N° Oportunidad"),max_length=100)
+    cant_ejecutivo = models.CharField(("Cantidad Ejecutivos"),max_length=5,default="")
 
 class oportunidad(models.Model):
     id_oportunidad = models.AutoField(primary_key=True)
-    username_ejecutivo = ejecutivos
+    username_ejecutivo = models.CharField(("Log Ejecutivo"),default="",max_length=20)
     inconsistencia = models.CharField(max_length=200)
-    monto_solicitado = models.BigIntegerField
+    monto_solicitado = models.IntegerField(("monto solicitado"), default=0)
     proceso_credito = models.CharField(max_length=20)
     pauta_evaluacion = models.CharField(max_length=30)
     desicion_final = models.BooleanField
-    anio_mes = models.DateField
-    canal = models.TextField
-    prod_eval = models.CharField(max_length=50)
+    anio_mes = models.DateField("Fecha", auto_now=False, auto_now_add=False, default=date.today)
+    canal = models.CharField(max_length=5, default="")
+    prod_eval = models.CharField(("producto evaluado"),max_length=50) 
