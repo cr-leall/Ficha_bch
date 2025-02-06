@@ -36,7 +36,7 @@
     <div class="container-menu">
         <div class="cont-menu">
             <nav>
-                <a href="{% url 'inicio' %}">Evaluacion Ejecutivos</a>
+                <a href="{% url 'index' %}">Evaluacion Ejecutivos</a>
                 <a href="{% url 'gestion' %}">Listado Ejecutivos</a>
                 <a href="#">Reporte Sucursal</a>
                 <a href="#">Revision At Sucursal</a>
@@ -105,7 +105,7 @@
                         <h3>Pilares</h3>
                         <select id="pilar-select" onchange="navegarPilar()">
                             <option >Seleccione una opción</option>
-                            <option value="{% url 'inicio' %}">Formalidad</option>
+                            <option value="{% url 'index' %}">Formalidad</option>
                             <option value="{% url 'gestion' %}">Gestión Otorgamiento</option>
                             <option value="{% url 'depuracion' %}">Depuración de Antecedentes</option>
                             <option value="{% url 'ingresos' %}">Ingreso de Datos</option>

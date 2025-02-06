@@ -18,24 +18,22 @@ def registro(request):
         roles = request.POST['roles']
         try:
             u = User.objects.create_user(username=username, email=email, password=password)
-            mensaje="Usuario Existente"
+            mensaje = "Usuario Existente"
             return render(request, 'web/registro.html', {'msg': mensaje})
-            
         except:
             u = User()
             u.first_name = nombres
-            u.last_name = apellidos 
+            u.last_name = apellidos
             u.email = email
             u.username = username
-            u.password = password
-            u.roles = roles
+            u.set_password(password)  # Usar set_password para guardar la contraseña de manera segura
             u.save()
-            mensaje="Registro Completa con exito"
+            mensaje = "Registro Completo con éxito"
             us = authenticate(request, username=username, password=password)
             login_aut(request, us)
-        return redirect('/index', {'user' : us})  # Redirigir a la vista deseada
+        return redirect('/index', {'user': us})  # Redirigir a la vista deseada
+    
     return render(request, 'web/registro.html')
-
 def login(request):
     return render(request,'web/login.html')
 
