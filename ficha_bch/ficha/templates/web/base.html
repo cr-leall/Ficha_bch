@@ -55,46 +55,47 @@
     </div> 
      <!--Contenedor Principal-->
      <div id="container">
-        <!--Columna Izquierda: Datos Generales-->
-        <div class="left-column">            
-            <label for="codigo-oficina">Código Oficina:</label>
-            <input type="text" id="codigo-oficina" placeholder="Agregar Código" required>
+    <!-- Columna Izquierda: Datos Generales -->
+<div class="left-column">
+    <form id="form">
+    <label for="codigo-oficina">Código Oficina:</label>
+    <input type="text" id="codigo-oficina" placeholder="Agregar Código" required>
 
-            <label for="rut">Rut:</label>
-            <select id="rut">
-                <option value="">Selecione</option>
-            </select>
+    <label for="rut">Rut:</label>
+    <select id="rut" required>
+        <option value="">Seleccione</option>
+    </select>
 
-            <label for="ejec-responsable">Ejec. Responsable:</label>
-            <input type="text" id="ejec-responsable" placeholder="Agregar" required>
+    <label for="ejec-responsable">Ejec. Responsable:</label>
+    <input type="text" id="ejec-responsable" placeholder="Agregar" required>
 
-            <label for="login-creador"> Login Creador:</label>
-            <input type="text" id="login-creador" placeholder="Agergar" required>
+    <label for="login-creador">Login Creador:</label>
+    <input type="text" id="login-creador" placeholder="Agregar" required>
 
-            <label for="tipo-cliente"> Tipo de Cliente:</label>
-            <select id="tipo-cliente">
-                <option value="">Selecione</option>
-            </select>
+    <label for="tipo-cliente">Tipo de Cliente:</label>
+    <select id="tipo-cliente" required>
+        <option value="">Seleccione</option>
+    </select>
 
-            <label for="sucursal"> Sucursal:</label>
-            <input type="text" id="producto"  placeholder="Agregar" required>
+    <label for="sucursal">Sucursal:</label>
+    <input type="text" id="sucursal" placeholder="Agregar" required>
 
-            <label for="prrducto"> Producto:</label>
-            <input type="text" id="producto" placeholder="Agregar" required>
+    <label for="producto">Producto:</label>
+    <input type="text" id="producto" placeholder="Agregar" required>
 
-            <label for="m-solicitado"> M. Solicitado (M$):</label>
-            <input type="text" id="m-solicitado" placeholder=" Agregar" required>
+    <label for="m-solicitado">M. Solicitado (M$):</label>
+    <input type="text" id="m-solicitado" placeholder="Agregar" required>
 
-            <label for="rut-modificar">Rut Modificar:</label>
-            <select id="rut-modificar">
-                <option value="">Selecione</option>
-            </select>
+    <label for="rut-modificar">Rut Modificar:</label>
+    <select id="rut-modificar" required>
+        <option value="">Seleccione</option>
+    </select>
 
-            <label for="revision-numero"> Revisión N°:</label>
-            <input type="text" id="revision-numero" placeholder="Agregar" required>      
-        </div>
-            
-            
+    <label for="revision-numero">Revisión N°:</label>
+    <input type="text" id="revision-numero" placeholder="Agregar" required>
+</form>
+</div>
+
             <!--Seccion central Variables-->
        {% block contenido %}
 
@@ -113,6 +114,7 @@
     </div>    
     {% block js %}
     <script src="{% static 'js/navPilares.js' %}"></script>
+    <script src="{% static 'js/form.js' %}"></script>
     {%endblock js %}
 
 </body>

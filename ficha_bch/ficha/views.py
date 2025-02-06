@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login as login_aut
+from django.http import JsonResponse
+from .models import cliente, ejecutivos, oficina, sucursal, oportunidad
+
 #from django.db import IntegrityError
 #from django.utils import timezone
 #from django.contrib.auth.decorators import login_required
@@ -51,4 +54,31 @@ def depuracion_antece(request):
 def ingreso_datos(request):
     return render(request,'web/ingreso_datos.html')
 
+# Otras vistas...
 
+def get_data(request):
+    codigo_oficina = request.GET('codigo_oficina')
+    rut = request.GET('rut')
+
+    try:
+        cliente_data = cliente.objects.get(rut=rut)
+        oficina_data = oficina.objects.get(cui=codigo_oficina)
+        # Aquí puedes obtener más datos según tus necesidades
+
+        data = {
+            'success': True,
+            'ejec_responsable': cliente_data.nombre,
+            'login_creador': cliente_data.email,
+            'tipo_cliente': cliente_data.tipo_cliente,
+            'sucursal': oficina_data.nombre_ofi,
+            'producto': cliente_data.tipo_producto,
+            'm_solicitado': '1000',  # Ejemplo de dato
+            'rut_modificar': cliente_data.rut,
+            'revision_numero': '1'  # Ejemplo de dato
+        }
+    except cliente.DoesNotExist:
+        data = {'success': False, 'message': 'Cliente no encontrado'}
+    except oficina.DoesNotExist:
+        data = {'success': False, 'message': 'Oficina no encontrada'}
+
+    return JsonResponse(data)
