@@ -31,21 +31,17 @@ body {
   margin-left: 10px;
 }
 
-.header-info {
+.container-user {
   display: flex;
-  position: relative;
-  align-items: flex-end;
-  width: 100%;
-  left: 38rem;
-  bottom: 90px;
+  align-items: center;
+  color: white;
 }
 
-.header-info p {
-  align-items: flex-end;
-  font-size: 14px;
-  color: #fff;
-  width: 170px;
-  height: 20px;
+.container-user .fa-user{
+  font-size: 10rem;
+  color: rgb(238, 6, 6);
+  padding-right: 2.5rem;
+  border-right: 1px solid white;
 }
 
 /* Menú lateral */

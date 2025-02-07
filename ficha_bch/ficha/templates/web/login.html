@@ -21,6 +21,7 @@
   <section id="container">
     <div class="form-container">
       <h1 class="title">Bienvenido de nuevo</h1>
+      {% csrf_token %}
       <form class="form" onsubmit="validarDatos(event)">
         <div class="input-group">
           <label for="username">Nombre de Usuario</label>

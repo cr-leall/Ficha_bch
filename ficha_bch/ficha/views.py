@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login as login_aut
 from django.http import JsonResponse
@@ -31,9 +31,9 @@ def registro(request):
             mensaje = "Registro Completo con éxito"
             us = authenticate(request, username=username, password=password)
             login_aut(request, us)
-        return redirect('/index', {'user': us})  # Redirigir a la vista deseada
-    
+        return render(request, 'web/index.html', {'user': us})  # Redirigir a la vista deseada
     return render(request, 'web/registro.html')
+
 def login(request):
     return render(request,'web/login.html')
 

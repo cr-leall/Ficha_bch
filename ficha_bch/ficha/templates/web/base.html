@@ -22,13 +22,22 @@
             </div>   
             <nav>
                 <img src="{% static 'img/logoBch.png' %}" id="logo" alt="logoBch"> 
-            
-            <div class="header-info">
-                <p><strong>Nombre:</strong> Dennise Pailamilla</p>
-                <p><strong>Fecha:</strong> 23-01-2025</p>
-                <p><strong>Tipo de Revisión: </strong> Normal</p>
-            </div>
         </nav>
+        </div>
+        <div class="container-user">
+            <div class="paste-button">
+                <button class="button fa-solid fa-user"> </button>
+                <div class="dropdown-content">
+                    {% if user.is_authenticated %}
+                    <a id="bottom" href="#">Ver Perfil : {{user.username}}  </a>
+                    <a id="bottom" href="#">Compras </a>
+                    <a id="bottom" href="{% url 'login' %}">Cerrar sesion</a>
+                    {% else %}
+                    <a id="bottom" href="{% url 'login' %}">Inicia sesion</a>
+                    <a id="bottom" href="{% url 'registro' %}">Registrate</a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </header>
    
