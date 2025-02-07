@@ -80,10 +80,15 @@ class ejecutivos(models.Model):
          max_length=10)
     nombre_ejecutivo = models.CharField(max_length=100)
     username_ejecutivo = models.CharField(max_length=20)
+    def __str__(self):
+         return f"{self.nombre_ejecutivo}"
 
 class oficina(models.Model):
     cui = models.CharField(("CUI"),primary_key=True, max_length=10)
-    nombre_ofi = models.CharField(("Nombre Oficina"),max_length=50)  
+    nombre_ofi = models.CharField(("Nombre Oficina"),max_length=50) 
+    def __str__(self):
+         return f"{self.nombre_ofi}"
+ 
 
 class sucursal(models.Model):
     cod_sucursal = models.CharField(("Codigo Sucursal"),primary_key=True, max_length=10)
@@ -91,6 +96,9 @@ class sucursal(models.Model):
     aprobador = models.CharField(("Nombre aprobador"),max_length=30)
     n_oportunidad = models.CharField(("N° Oportunidad"),max_length=100)
     cant_ejecutivo = models.CharField(("Cantidad Ejecutivos"),max_length=5,default="")
+    def __str__(self):
+         return f"{self.nombre_suc}"
+    
 
 class oportunidad(models.Model):
     id_oportunidad = models.AutoField(primary_key=True)
