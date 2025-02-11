@@ -13,15 +13,11 @@ body {
 }
 
 /* Estilos para el encabezado */
-#container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .container .btn-menu,
 .logo {
   float: left;
-  line-height: 70px;
+  margin-top: 5px;
+  line-height: 1px;
 }
 
 .container .btn-menu label {
@@ -30,18 +26,65 @@ body {
   cursor: pointer;
   margin-left: 10px;
 }
-
+.user-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  object-fit: cover;
+}
 .container-user {
-  display: flex;
+  display: block;
   align-items: center;
   color: white;
+  margin-left: 63rem;
 }
 
-.container-user .fa-user{
-  font-size: 10rem;
-  color: rgb(238, 6, 6);
+.container-user .fa-user {
+  font-size: 4rem;
+  color: white;
   padding-right: 2.5rem;
-  border-right: 1px solid white;
+  border-right: 1px solid rgb(157, 154, 172);
+  text-decoration: none;
+}
+
+.paste-button .button {
+  background-color: #20918b;/* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  font-size: 16px; /* Tamaño de la fuente del botón */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.paste-button .button:hover {
+  background-color: #4dc0ba; /* Color de fondo al pasar el cursor */
+}
+
+.dropdown-content {
+  display: none; /* Ocultar el contenido del menú desplegable por defecto */
+  position: absolute; /* Posición absoluta para el menú desplegable */
+  background-color: #f9f9f9; /* Color de fondo del menú desplegable */
+  min-width: 160px; /* Ancho mínimo del menú desplegable */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra del menú desplegable */
+  z-index: 1; /* Asegurarse de que el menú desplegable esté por encima de otros elementos */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.dropdown-content a {
+  color: black; /* Color del texto de los enlaces */
+  padding: 12px 16px; /* Espaciado interno de los enlaces */
+  text-decoration: none; /* Sin subrayado */
+  display: block; /* Mostrar los enlaces como bloques */
+  border-bottom: 1px solid #ddd; /* Línea divisoria entre enlaces */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; /* Color de fondo al pasar el cursor sobre los enlaces */
+}
+
+.paste-button:hover .dropdown-content {
+  display: block; /* Mostrar el contenido del menú desplegable al pasar el cursor sobre el botón */
 }
 
 /* Menú lateral */
@@ -115,11 +158,11 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 96%;
-  padding: 10px;
+  padding: 1rem;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgb(0, 0, 0);
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
 .tarjeta .resultado {
@@ -241,7 +284,7 @@ body {
   margin-top: 10px;
 }
 
-.rigth-column-h3 {
+.right-column h3 {
   margin-bottom: 10px;
   font-size: 28px;
   color: #132669;
@@ -283,7 +326,6 @@ option {
   align-items: center;
   margin-bottom: 20px;
 }
-
 .left-column .inputs select,
 .left-column .inputs input[type="text"] {
   width: 100%;

@@ -21,7 +21,13 @@
  <section id="container">
     <div class="form-registro">
       <h1 class="title">Registro del Personal</h1>
-      <form class="form" method="POST" onsubmit="return validarRegistro()">
+      
+      <!-- Mostrar mensaje si está presente -->
+      {% if msg %}
+        <div class="alert">{{ msg }}</div>
+      {% endif %}
+      
+      <form class="form" method="POST" action="{% url 'registro' %}" onsubmit="return validarRegistro()">
         {% csrf_token %}
         <div class="input">
           <label for="nombres">Nombres:</label>
@@ -63,6 +69,6 @@
     </div>
  </section>
 
-
+ <script src="{% static 'js/registro.js' %}"></script>
 </body>
 </html>

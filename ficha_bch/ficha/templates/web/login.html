@@ -21,8 +21,14 @@
   <section id="container">
     <div class="form-container">
       <h1 class="title">Bienvenido de nuevo</h1>
-      {% csrf_token %}
-      <form class="form" onsubmit="validarDatos(event)">
+      
+      <!-- Mostrar mensaje si está presente -->
+      {% if msg %}
+        <div class="alert">{{ msg }}</div>
+      {% endif %}
+      
+      <form class="form" action="{% url 'login' %}" method="post" onsubmit="validarDatos(event)">
+        {% csrf_token %}
         <div class="input-group">
           <label for="username">Nombre de Usuario</label>
           <input type="text" name="username" id="username" maxlength="15" placeholder="Ingrese su nombre de Usuario">

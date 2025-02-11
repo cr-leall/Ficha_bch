@@ -26,15 +26,18 @@
         </div>
         <div class="container-user">
             <div class="paste-button">
-                <button class="button fa-solid fa-user"> </button>
+                {% if user.is_authenticated %}
+                    <img src="{{ user.userprofile.foto.url }}" alt="Foto de perfil" class="user-photo">
+                {% else %}
+                    <button class="button fa-solid fa-user"></button>
+                {% endif %}
                 <div class="dropdown-content">
                     {% if user.is_authenticated %}
-                    <a id="bottom" href="#">Ver Perfil : {{user.username}}  </a>
-                    <a id="bottom" href="#">Compras </a>
-                    <a id="bottom" href="{% url 'login' %}">Cerrar sesion</a>
+                        <a id="bottom" href="#">Ver Perfil: {{ user.first_name }} {{ user.last_name }}</a>
+                        <a id="bottom" href="{% url 'login' %}">Cerrar sesión</a>
                     {% else %}
-                    <a id="bottom" href="{% url 'login' %}">Inicia sesion</a>
-                    <a id="bottom" href="{% url 'registro' %}">Registrate</a>
+                        <a id="bottom" href="{% url 'login' %}">Inicia sesión</a>
+                        <a id="bottom" href="{% url 'registro' %}">Regístrate</a>
                     {% endif %}
                 </div>
             </div>

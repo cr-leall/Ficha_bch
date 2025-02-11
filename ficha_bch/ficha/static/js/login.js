@@ -11,14 +11,30 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        // Validación personalizada (puedes añadir más reglas)
-        if (usuario === "Admin" && contraseña === "123456") {
-            alert("Validación exitosa.");
-            // Redirigir a otra vista usando la variable de URL
-            window.location.href = urlIndex;
-        } else {
-            alert("Usuario o contraseña incorrectos.");
-        }
+        // Realizar una solicitud AJAX para validar las credenciales
+        fetch('', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            },
+            body: new URLSearchParams({
+                'username': usuario,
+                'password': contraseña
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.valid) {
+                alert("Validación exitosa.");
+                window.location.href = urlIndex;
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
     
     // Enlazar la función de validación al evento onsubmit del formulario

@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,logout,login as login_aut
+from django.contrib.auth import authenticate,login as login_aut
 from django.http import JsonResponse
 from .models import cliente, ejecutivos, oficina, sucursal, oportunidad
-
-#from django.db import IntegrityError
+from django.db import IntegrityError
+from .models import UserProfile
 #from django.utils import timezone
 #from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 def registro(request):
     if request.method == 'POST':
         nombres = request.POST['nombres']
@@ -16,26 +17,45 @@ def registro(request):
         username = request.POST['username']
         password = request.POST['password']
         roles = request.POST['roles']
+        
         try:
+            # Intentar crear un nuevo usuario
             u = User.objects.create_user(username=username, email=email, password=password)
-            mensaje = "Usuario Existente"
-            return render(request, 'web/registro.html', {'msg': mensaje})
-        except:
-            u = User()
             u.first_name = nombres
             u.last_name = apellidos
-            u.email = email
-            u.username = username
-            u.set_password(password)  # Usar set_password para guardar la contraseña de manera segura
             u.save()
+            
+            # Crear el perfil de usuario
+            perfil = UserProfile(user=u, roles=roles)
+            perfil.save()
+            
             mensaje = "Registro Completo con éxito"
+            
+            # Autenticar y loguear al usuario
             us = authenticate(request, username=username, password=password)
             login_aut(request, us)
-        return render(request, 'web/index.html', {'user': us})  # Redirigir a la vista deseada
+            
+            return render(request, 'web/login.html', {'user': us, 'msg': mensaje})
+        
+        except IntegrityError:
+            # Si el usuario ya existe, manejar la excepción y mostrar el mensaje de error
+            mensaje = "Usuario Existente"
+            return render(request, 'web/registro.html', {'msg': mensaje})
+        
+    # Renderizar la página de registro si el método no es POST
     return render(request, 'web/registro.html')
 
 def login(request):
-    return render(request,'web/login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login_aut(request, user)
+            return JsonResponse({'valid': True})
+        else:
+            return JsonResponse({'valid': False})
+    return render(request, 'web/login.html')
 
 def base(request):
     return render(request,'web/base.html')
