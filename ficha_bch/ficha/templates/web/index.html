@@ -62,8 +62,8 @@
             <input type="text" name="observaciones" placeholder="Observaciones">
         </div>
         <div class="top-buttons">
-            <button > Recuperar </button>
-            <button> Limpiar </button>
+            <button type="button"> Recuperar </button>
+            <button type="reset"> Limpiar </button>
             <button type="submit" class="button"> Archivar </button>
         </div>
     </form>
@@ -72,7 +72,7 @@
 {% block js %}
 <script src="{% static 'js/formalidad.js' %}"></script>
 <script src="{% static 'js/navPilares.js' %}"></script>
-<script src="{% static 'js/form.js' %}"></script>
 {% endblock js %}
 
 {% endblock contenido %}
+

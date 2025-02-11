@@ -80,19 +80,55 @@ class cliente(models.Model):
         self.rut = self.rut.replace(".","").upper()
         validar_rut(self.rut)
     def __str__(self):
-         return f"{self.nombre}"
-    
+         return f"{self.nombre} {self.apellido}"
+
+def val_rut_ejecutivo(rut_ejecutivo):
+    rut_ejecutivo = rut_ejecutivo.replace(".", "").replace("-","").upper()
+    cuerpo = rut_ejecutivo[:-1]
+    dv = rut_ejecutivo[-1]
+
+    if not cuerpo.isdigit():
+        raise ValidationError("Solo se adminten caracteres numericos")
+
+    suma = 0
+    multiplicador = 2
+    for c in reversed(cuerpo):
+        suma += int(c) * multiplicador
+        multiplicador += 1
+        if multiplicador > 7:
+            multiplicador = 2
+
+    resto = suma % 11
+    dv_calculado = str(11 - resto) if resto != 0 else "0"
+    if dv_calculado =="10":
+        dv_calculado = "K"
+
+    if dv != dv_calculado:
+                raise ValidationError("El digito verificador del RUT no es válido")    
 class ejecutivos(models.Model):
     rut_ejecutivo = models.CharField(
          primary_key=True,
-         max_length=10)
+         max_length=10,
+         validators=[
+             RegexValidator(
+                regex = r'^\d{7,8}-[\dkK]$',
+                  message = "El RUT debe estar en formato XXXXXXXX-X"
+                        )
+                    ],
+                    help_text="Formato: 20222777-X"
+                        )
     nombre_ejecutivo = models.CharField(max_length=100)
     username_ejecutivo = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.nombre_ejecutivo} / Username: {self.username_ejecutivo}"
 
 class oficina(models.Model):
     cui = models.CharField(("CUI"),primary_key=True, max_length=10)
     nombre_ofi = models.CharField(("Nombre Oficina"),max_length=50)  
 
+    def __str__(self):
+        return self.nombre_ofi
 class sucursal(models.Model):
     cod_sucursal = models.CharField(("Codigo Sucursal"),primary_key=True, max_length=10)
     nombre_suc = models.CharField(("Nombre Sucursal"),max_length=50)
@@ -100,6 +136,8 @@ class sucursal(models.Model):
     n_oportunidad = models.CharField(("N° Oportunidad"),max_length=100)
     cant_ejecutivo = models.CharField(("Cantidad Ejecutivos"),max_length=5,default="")
 
+    def __str__(self):
+         return self.nombre_suc
 class oportunidad(models.Model):
     id_oportunidad = models.AutoField(primary_key=True)
     username_ejecutivo = models.CharField(("Log Ejecutivo"),default="",max_length=20)
