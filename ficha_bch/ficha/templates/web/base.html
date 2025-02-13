@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block estilos%}
-
     {% endblock estilos%}
-  <title>BancoChile</title>
+    <title>BancoChile</title>
 </head>
 
 <body>
@@ -22,7 +21,7 @@
             </div>   
             <nav>
                 <img src="{% static 'img/logoBch.png' %}" id="logo" alt="logoBch"> 
-        </nav>
+            </nav>
         </div>
         <div class="container-user">
             <div class="paste-button">
@@ -61,73 +60,78 @@
     <!--botones principales-->
     <div class="tarjeta">
         <h3>Calificación / Estado de Carpeta</h3>
+        <!-- Mostrar mensaje bienvenida -->
+        {% if success %}
+            <div class="alert">{{ success }}</div>
+        {% endif %}
         <div class="resultado"> Excelente
-        
-    </div>
+        </div>
     </div> 
-     <!--Contenedor Principal-->
-     <div id="container">
-    <!-- Columna Izquierda: Datos Generales -->
-<div class="left-column">
-    <form id="form">
-    <label for="codigo-oficina">Código Oficina:</label>
-    <input type="text" id="codigo-oficina" placeholder="Agregar Código" required>
+    <!--Contenedor Principal-->
+    <div id="container">
+        <!-- Columna Izquierda: Datos Generales -->
+        <form id="form" method="post">
+            {% csrf_token %}
+            <div class="left-column">
+                <label for="cod_oficina">Código Oficina:</label>
+                <input type="text" id="cod_oficina" name="cod_oficina" placeholder="Agregar Código" required>
 
-    <label for="rut">Rut:</label>
-    <select id="rut" required>
-        <option value="">Seleccione</option>
-    </select>
+                <label for="rut_cliente">Rut:</label>
+                <input type="text" id="rut_cliente" name="rut_cliente" placeholder="Agregar RUT">
 
-    <label for="ejec-responsable">Ejec. Responsable:</label>
-    <input type="text" id="ejec-responsable" placeholder="Agregar" required>
+                <label for="ejec-responsable">Ejec. Responsable:</label>
+                <input type="text" id="ejec-responsable" name="ejec_responsable"  value="{{ oficina_data.ejecutivos__nombre_ejecutivo }}" >
 
-    <label for="login-creador">Login Creador:</label>
-    <input type="text" id="login-creador" placeholder="Agregar" required>
+                <label for="login-creador">Login Creador:</label>
+                <input type="text" id="login-creador" name="login_creador" value="{{ oficina_data.username_ejecutivo }}" >
 
-    <label for="tipo-cliente">Tipo de Cliente:</label>
-    <select id="tipo-cliente" required>
-        <option value="">Seleccione</option>
-    </select>
+                <label for="tipo-cliente">Tipo de Cliente:</label>
+                <input type="text" id="tipo-cliente" name="tipo_cliente"  value="{{ oficina_data.cliente__tipo_cliente }}" >
 
-    <label for="sucursal">Sucursal:</label>
-    <input type="text" id="sucursal" placeholder="Agregar" required>
+                <label for="sucursal">Sucursal:</label>
+                <input type="text" id="sucursal" name="sucursal"  value="{{ oficina_data.sucursal__nombre_suc }}">
 
-    <label for="producto">Producto:</label>
-    <input type="text" id="producto" placeholder="Agregar" required>
+                <label for="producto">Producto:</label>
+                <input type="text" id="producto" name="producto"  value="{{ oficina_data.prod_eval }}">
 
-    <label for="m-solicitado">M. Solicitado (M$):</label>
-    <input type="text" id="m-solicitado" placeholder="Agregar" required>
+                <label for="m-solicitado">M. Solicitado (M$):</label>
+                <input type="text" id="m-solicitado" name="m_solicitado"  value="{{ oficina_data.monto_solicitado }}">
 
-    <label for="rut-modificar">Rut Modificar:</label>
-    <select id="rut-modificar" required>
-        <option value="">Seleccione</option>
-    </select>
+                <label for="rut-modificar">Rut Modificar:</label>
+                <input type="text" id="rut-modificar" name="rut_modificar"  value="{{ oficina_data.cliente__rut }}">
 
-    <label for="revision-numero">Revisión N°:</label>
-    <input type="text" id="revision-numero" placeholder="Agregar" required>
-</form>
-</div>
+                <label for="revision-numero">Revisión N°:</label>
+                <input type="text" id="revision-numero" name="revision_numero"  value="{{ oficina_data.revision_numero }}">
 
-            <!--Seccion central Variables-->
-       {% block contenido %}
-
-       {% endblock contenido %}
-                    <!--Selector de Pilares--> 
-                    <div class="right-column">
-                        <h3>Pilares</h3>
-                        <select id="pilar-select" onchange="navegarPilar()">
-                            <option >Seleccione una opción</option>
-                            <option value="{% url 'index' %}">Formalidad</option>
-                            <option value="{% url 'gestion' %}">Gestión Otorgamiento</option>
-                            <option value="{% url 'depuracion' %}">Depuración de Antecedentes</option>
-                            <option value="{% url 'ingresos' %}">Ingreso de Datos</option>
-                        </select>
-                    </div>
+                <button type="submit">Consultar</button>
+            </div>
+        </form>
+        <!--Seccion central Variables-->
+        {% block contenido %}
+            {% if clientes_con_credito %}
+                <h2>Resultados:</h2>
+                <ul>
+                    {% for cliente in clientes_con_credito %}
+                        <li>{{ cliente.nombre }} (RUT: {{ cliente.rut }})</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endblock contenido %}
+        <!--Selector de Pilares--> 
+        <div class="right-column">
+            <h3>Pilares</h3>
+            <select id="pilar-select" onchange="navegarPilar()">
+                <option>Seleccione una opción</option>
+                <option value="{% url 'index' %}">Formalidad</option>
+                <option value="{% url 'gestion' %}">Gestión Otorgamiento</option>
+                <option value="{% url 'depuracion' %}">Depuración de Antecedentes</option>
+                <option value="{% url 'ingresos' %}">Ingreso de Datos</option>
+            </select>
+        </div>
     </div>    
     {% block js %}
     <script src="{% static 'js/navPilares.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
-    {%endblock js %}
-
+    {% endblock js %}
 </body>
 </html>

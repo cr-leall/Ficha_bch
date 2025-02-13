@@ -22,12 +22,15 @@
     <div class="form-registro">
       <h1 class="title">Registro del Personal</h1>
       
-      <!-- Mostrar mensaje si está presente -->
+    <!-- Mostrar mensaje Usuario existente -->
       {% if msg %}
         <div class="alert">{{ msg }}</div>
       {% endif %}
-      
-      <form class="form" method="POST" action="{% url 'registro' %}" onsubmit="return validarRegistro()">
+    <!-- Mostrar mensaje Email ya registrado -->
+      {% if Error %}
+        <div class="alert">{{ Error }}</div>
+      {% endif %}
+      <form class="form" method="POST" action="{% url 'registro' %}" onclick="return validarRegistro()" >
         {% csrf_token %}
         <div class="input">
           <label for="nombres">Nombres:</label>
@@ -50,8 +53,8 @@
           <input type="password" name="password" id="password" required>
         </div>
         <div class="input">
-          <label for="confirm_password">Confirmar Contraseña:</label>
-          <input type="password" id="confirm_password" required>
+          <label for="password2">Confirmar Contraseña:</label>
+          <input type="password" name="password2" id="password2" required>
         </div>
         <div class="input">
           <div class="columna">
@@ -64,7 +67,7 @@
             </div>
           </div>
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn-enviar">Enviar</button>
       </form>
     </div>
  </section>

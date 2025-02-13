@@ -267,3 +267,13 @@
   top: 13em;
   left: 10px;
 }
+/*------------------------------------------*/
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  color: whitesmoke; /* Cambia el color del texto */
+  background-color: #5c5959; /* Color de fondo para una alerta */
+  border-color: rgb(40, 116, 238); /* Color del borde */
+}

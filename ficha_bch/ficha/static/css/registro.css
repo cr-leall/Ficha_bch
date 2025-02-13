@@ -88,3 +88,13 @@
 .form button:hover {
   background: rgb(20, 102, 170);
 }
+/*------------------------------------------*/
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: rgb(238, 221, 221); /* Cambia el color del texto */
+  background-color: #ce0000; /* Color de fondo para una alerta */
+  border-color: #885c67; /* Color del borde */
+}

@@ -22,12 +22,15 @@
     <div class="form-container">
       <h1 class="title">Bienvenido de nuevo</h1>
       
-      <!-- Mostrar mensaje si está presente -->
-      {% if msg %}
-        <div class="alert">{{ msg }}</div>
+      <!-- Mostrar mensaje error en credenciales -->
+      {% if error %}
+        <div class="alert">{{ error }}</div>
       {% endif %}
-      
-      <form class="form" action="{% url 'login' %}" method="post" onsubmit="validarDatos(event)">
+      <!-- Mostrar mensaje sesion cerrada -->
+      {% if output %}
+      <div class="alert">{{ output }}</div>
+      {% endif %}
+      <form class="form" action="{% url 'login' %}" method="post" onsubmit="validarDatos()">
         {% csrf_token %}
         <div class="input-group">
           <label for="username">Nombre de Usuario</label>

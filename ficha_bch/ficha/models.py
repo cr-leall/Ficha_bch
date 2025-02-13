@@ -21,7 +21,7 @@ class Parametro(models.Model):
     id_parametro = models.AutoField(primary_key=True)
     nombre_parametro = models.CharField(max_length=150)
 
-class Errores_agravantes(models.Model):
+class Errores_agravante(models.Model):
     id_base = models.AutoField(primary_key=True)
     nombre_parametro = models.CharField(max_length=100)
     tipo_error = models.CharField(max_length=100)
@@ -105,7 +105,7 @@ def val_rut_ejecutivo(rut_ejecutivo):
 
     if dv != dv_calculado:
                 raise ValidationError("El digito verificador del RUT no es válido")    
-class ejecutivos(models.Model):
+class ejecutivo(models.Model):
     rut_ejecutivo = models.CharField(
          primary_key=True,
          max_length=10,
@@ -141,6 +141,7 @@ class sucursal(models.Model):
 class oportunidad(models.Model):
     id_oportunidad = models.AutoField(primary_key=True)
     username_ejecutivo = models.CharField(("Log Ejecutivo"),default="",max_length=20)
+    cui = models.ForeignKey(oficina, on_delete=models.CASCADE, default=0)
     inconsistencia = models.CharField(max_length=200)
     monto_solicitado = models.IntegerField(("monto solicitado"), default=0)
     proceso_credito = models.CharField(max_length=20)
@@ -149,3 +150,17 @@ class oportunidad(models.Model):
     anio_mes = models.DateField("Fecha", auto_now=False, auto_now_add=False, default=date.today)
     canal = models.CharField(max_length=5, default="")
     prod_eval = models.CharField(("producto evaluado"),max_length=50) 
+
+class filtro_revision(models.Model):
+    id_filtro = models.AutoField(primary_key=True)
+    cui = models.ForeignKey(oficina, on_delete=models.CASCADE)
+    rut = models.ForeignKey(cliente, on_delete=models.CASCADE) 
+    nombre_ejecutivo = models.CharField(ejecutivo,('Ejec.Responsable'), max_length=40)
+    username_ejecutivo = models.CharField(ejecutivo, max_length=20)
+    tipo_cliente = models.CharField(cliente, max_length=10)
+    nombre_suc = models.CharField(sucursal, max_length=40)
+    tipo_producto = models.CharField(cliente, max_length=20)
+    monto_solicitado = models.IntegerField(("monto solicitado"), default=0)
+    rut = models.CharField(cliente, max_length=10)
+    num_revision= models.CharField(('Revisión N°: '),max_length=10)
+    
